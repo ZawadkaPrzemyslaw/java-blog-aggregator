@@ -55,7 +55,7 @@ public class InitDbService {
 		
 		Blog blogJavavids = new Blog();
 		blogJavavids.setName("JavaVids");
-		blogJavavids.setUrl("www.onet.pl");
+		blogJavavids.setUrl("http://feeds.feedburner.com/javavids?format=xml");
 		blogJavavids.setUser(userAdmin);
 		blogRepository.save(blogJavavids);
 		
