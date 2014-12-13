@@ -22,7 +22,7 @@ public class UserController {
 	
 	@RequestMapping(value="/users/{id}")
 	public String detail(Model model, @PathVariable int id) {
-		model.addAttribute("user", userService.findOne(id));
+		model.addAttribute("user", userService.findOneWithBlogs(id));
 		return "user-detail";
 	}
 }

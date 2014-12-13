@@ -68,7 +68,7 @@ public class InitDbService {
 		
 		Item item2 = new Item();
 		item2.setBlog(blogJavavids);
-		item2.setTitle("first");
+		item2.setTitle("second");
 		item2.setLink("https://javavids.com");
 		item2.setPublishedDate(new Date());
 		itemRepository.save(item2);
