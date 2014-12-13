@@ -22,6 +22,6 @@
 	<definition name="user-detail" extends="common">
 		<put-attribute name="title" value="Java Blog Aggregator - user detail" />
 		<put-attribute name="body" value="/WEB-INF/jsp/user-detail.jsp" />
-		<put-attribute name="current" value="user-detail" />
+		<put-attribute name="current" value="users" />
 	</definition>
 </tiles-definitions>
