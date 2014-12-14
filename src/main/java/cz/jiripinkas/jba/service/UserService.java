@@ -65,6 +65,11 @@ public class UserService {
 		user.setRoles(roles);
 		userRepository.save(user);
 	}
+
+	public Object findOneWithBlogs(String name) {
+		User user = userRepository.findByName(name);
+		return findOneWithBlogs(user.getId());
+	}
 	
 	
 }
