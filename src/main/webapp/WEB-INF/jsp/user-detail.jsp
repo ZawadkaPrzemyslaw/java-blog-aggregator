@@ -7,6 +7,8 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
 	data-target="#myModal">New blog</button>
+</br>
+</br>
 
 <form:form commandName="blog" cssClass="form-horizontal">
 	<!-- Modal -->
@@ -36,31 +38,48 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<input type="submit" class="btn btn-default" value="Save"/>
+					<input type="submit" class="btn btn-default" value="Save" />
 				</div>
 			</div>
 		</div>
 	</div>
 </form:form>
 
-<c:forEach items="${user.blogs}" var="blog">
-	<h1>${blog.name}</h1>
-	<p>${blog.url}</p>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.nav-tabs a:first').tab('show') 
+	})
+</script>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+	<c:forEach items="${user.blogs}" var="blog">
+		<li><a href="#blog_${blog.id}" data-toggle="tab">${blog.name}</a></li>
+	</c:forEach>
+</ul>
 
-	<table class="table table-bordered table-hover table-striped">
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Link</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${blog.items}" var="item">
-				<tr>
-					<td>${item.title}</td>
-					<td>${item.link}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-</c:forEach>
+<!-- Tab panes -->
+<div class="tab-content">
+	<c:forEach items="${user.blogs}" var="blog">
+		<div role="tabpanel" class="tab-pane" id="blog_${blog.id}">
+			<h1>${blog.name}</h1>
+			<p>${blog.url}</p>
+
+			<table class="table table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Link</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${blog.items}" var="item">
+						<tr>
+							<td>${item.title}</td>
+							<td>${item.link}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</c:forEach>
+</div>
